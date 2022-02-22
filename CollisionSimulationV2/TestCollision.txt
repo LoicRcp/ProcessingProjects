@@ -1,0 +1,33 @@
+ball2.location.x = 284.00146
+ball1.location.x = 315.99854
+ball2.location.y = 324.00146
+ball1.location.y = 324.00146
+
+vecteur n =x2 -x1, y2-y1 = (284.00146 - 315.99854, 324.00146 - 324.00146) = (-31,99708, 0)
+Magnitude du vecteur n = sqrt((nx²+ny²)) = sqrt(((-31,99708*-31,99708)+(0*0))) = 31,99708
+
+
+unitVector = n/magn(n) = n/sqrt((nx²+ny²)) = (-1,0)
+
+unitTengant = -uny,unx = (-0,-1)
+
+ball1Vel = (-0.1,0.1)
+ball2Vel = (0.1,0.1)
+
+v1Normal  =  unitVector.dot(ball1.velocity)  = (-1,0) * (-0.1,0.1) = -1*-0.1 + 0*0.1 = 0.1
+v1Tangent =  unitTangent.dot(ball1.velocity) = (-0,-1)* (-0.1,0.1) = 0 +-1*0.1 = -0.1= -0.1
+v2Normal  =  unitVector.dot(ball2.velocity)  = (-1,0) * (0.1,0.1)  = -0.1
+v2Tangent =  unitTangent.dot(ball2.velocity) = (-0,-1)* (0.1,0.1)  = -0.1
+
+
+v1AfterCollisionVelocityScalar = ( v1Normal  * (mass1 - mass 2) + 2*mass2*v2Normal  ) /  mass1 + mass2 = (0.1 * ( 0.1 - 0.1) + 2*0.1*-0.1) / 0.2 = -0.1
+v2AfterCollisionVelocityScalar = ( v2Normal  * (mass2 - mass 1) + 2*mass1*v1Normal  ) /  mass1 + mass2 = (-0.1 * ( 0.1 - 0.1) + 2*0.1*0.1) / 0.2 = 0.1
+
+v1AfterCollisionVelocityVectorNormal =  v1AfterCollisionVelocityScalar * unitVector = -0.1 * (-1,0) = (0.1,0)
+v1AfterCollisionVelocityVectorTangent = v1Tangent * unitTengant  = -0.1 * (-0,-1) = (0,0.1)
+
+v2AfterCollisionVelocityVectorNormal =  v2AfterCollisionVelocityScalar * unitVector = 0.1 * (-1,0) = (-0.1,0)
+v2AfterCollisionVelocityVectorTangent = v2Tangent  * unitTengant  = -0.1 * (-0,-1) = (0,0.1)
+
+v1AfterCollisionVelocity = v1AfterCollisionVelocityVectorNormal  + v1AfterCollisionVelocityVectorTangent = (0.1,0) + (0,0.1) = (0.1,0.1)
+v2AfterCollisionVelocity = v2AfterCollisionVelocityVectorNormal  + v2AfterCollisionVelocityVectorTangent = (-0.1,0) + (0,0.1) = (-0.1,0.1)
